@@ -5,14 +5,14 @@ import HomeButton from '../../components/HomeButton'
 
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
   return (
     <View style={styles.container}>
       <Text style={styles.opening}>Welcome Back Sariya's Sip N Bites!</Text>
       <Image source={require('../../../assets/home.png')} />
       <HomeButton title='Make a Donation' />
-      <HomeButton title='Your Donations' />
-      <HomeButton title='Donation Requests' />
+      <HomeButton title='Your Donations' onPress={() => navigation.navigate('DonationScreen')} />
+      <HomeButton title='Donation Requests' onPress={() => navigation.navigate('RequestScreen')} />
     </View>
   )
 }

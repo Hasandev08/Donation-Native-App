@@ -5,9 +5,9 @@ import colors from '../../config/colors'
 
 import { RFPercentage } from 'react-native-responsive-fontsize'
 
-const HomeButton = ({ title }) => {
+const HomeButton = ({ title, onPress }) => {
   return (
-    <TouchableOpacity>
+    <TouchableOpacity onPress={onPress}>
       <View style={styles.button}>
         <Text>{title}</Text>
       </View>
