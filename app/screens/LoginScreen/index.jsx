@@ -57,7 +57,7 @@ const LoginScreen = ({ navigation }) => (
         <View style={styles.loginButton}>
           <SubmitButton title='Login' onPress={() => navigation.navigate('HomeScreen')} />
         </View>
-        <TouchableOpacity>
+        <TouchableOpacity onPress={() => navigation.navigate('SignupScreen')}>
           <Text style={styles.signup}>Sign Up Instead</Text>
         </TouchableOpacity>
       </AppForm>

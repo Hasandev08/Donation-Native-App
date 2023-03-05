@@ -1,10 +1,9 @@
 import React from 'react'
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import SelectDropdown from 'react-native-select-dropdown'
 
 import AppForm from '../../components/Forms/AppForm'
 import AppFormField from '../../components/Forms/AppFormField'
-import DropdownComponent from '../../components/DropdownComponent'
+import DropdownComponent from '../../components/common/DropdownComponent'
 import SubmitButton from '../../components/Forms/SubmitButton'
 
 import * as Yup from 'yup'
@@ -34,6 +33,11 @@ const validationSchema = Yup.object().shape({
 })
 
 const SignUpScreen = ({ navigation }) => {
+  const data = [
+    { label: 'NGO', value: '1' },
+    { label: 'Restaurant', value: '2' },
+  ]
+
   return (
     <ScrollView style={styles.background}>
       <View style={styles.logo}>
@@ -77,7 +81,7 @@ const SignUpScreen = ({ navigation }) => {
             text='Password'
             textContentType='password'
           />
-          <DropdownComponent />
+          <DropdownComponent data={data} placeholder='Select' />
           <View style={styles.signupButton}>
             <SubmitButton title='Signup' />
           </View>

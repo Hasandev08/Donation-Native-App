@@ -1,17 +1,12 @@
 import React, { useState } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import { Dropdown } from 'react-native-element-dropdown'
 
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 
-import colors from '../../config/colors'
+import colors from '../../../config/colors'
 
-const data = [
-  { label: 'NGO', value: '1' },
-  { label: 'Restaurant', value: '2' },
-]
-
-const DropdownComponent = () => {
+const DropdownComponent = ({ data, placeholder }) => {
   const [value, setValue] = useState(null)
 
   return (
@@ -26,7 +21,7 @@ const DropdownComponent = () => {
         maxHeight={300}
         labelField='label'
         valueField='value'
-        placeholder='Select'
+        placeholder={placeholder}
         value={value}
         onChange={(item) => {
           setValue(item.value)

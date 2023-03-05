@@ -6,21 +6,17 @@ import ProfileButton from '../../components/common/ProfileButton'
 
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 
-const HomeScreen = ({ navigation }) => {
+const HomeNGOScreen = ({ navigation }) => {
   return (
     <>
       <View style={styles.container}>
-        <Text style={styles.opening}>Welcome Back Sariya's Sip N Bites!</Text>
-        <Image source={require('../../../assets/home.png')} />
-        <HomeButton
-          title='Make a Donation'
-          onPress={() => navigation.navigate('DonationFormScreen')}
-        />
-        <HomeButton title='Your Donations' onPress={() => navigation.navigate('DonationScreen')} />
+        <Text style={styles.opening}>Welcome Back End Poverty Welfare Society</Text>
+        <Image source={require('../../../assets/request.png')} />
         <HomeButton
           title='Donation Requests'
-          onPress={() => navigation.navigate('RequestScreen')}
+          onPress={() => navigation.navigate('NGOFormScreen')}
         />
+        <HomeButton title='Request History' onPress={() => navigation.navigate('DonationScreen')} />
       </View>
       <View style={styles.footer}>
         <ProfileButton navigation={navigation} />
@@ -34,12 +30,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flex: 0.9,
     justifyContent: 'space-around',
-    paddingVertical: RFPercentage(8),
+    paddingVertical: RFPercentage(15),
   },
   opening: {
     fontSize: RFValue(20),
     fontWeight: '900',
-    paddingHorizontal: RFPercentage(10),
+    paddingHorizontal: RFPercentage(8),
     textAlign: 'center',
   },
   footer: {
@@ -51,4 +47,4 @@ const styles = StyleSheet.create({
   },
 })
 
-export default HomeScreen
+export default HomeNGOScreen
