@@ -1,5 +1,5 @@
 import React from 'react'
-import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 
 import AppForm from '../../components/Forms/AppForm'
 import AppFormField from '../../components/Forms/AppFormField'
@@ -8,7 +8,7 @@ import SubmitButton from '../../components/Forms/SubmitButton'
 
 import * as Yup from 'yup'
 
-import { RFPercentage } from 'react-native-responsive-fontsize'
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 
 import colors from '../../config/colors'
 
@@ -40,55 +40,57 @@ const SignUpScreen = ({ navigation }) => {
 
   return (
     <ScrollView style={styles.background}>
-      <View style={styles.logo}>
-        <Image source={require('../../../assets/logo.png')} />
-      </View>
-      <View style={styles.components}>
-        <AppForm
-          initialValues={{
-            fullName: '',
-            phoneNumber: '',
-            email: '',
-            password: '',
-            confirmPassword: '',
-          }}
-          onSubmit={(values) => console.log(values)}
-          validationSchema={validationSchema}
-        >
-          <AppFormField text='Name' name='fullName' textContentType='name' placeholder='Name' />
-          <AppFormField
-            keyboardType='phone-pad'
-            name='phoneNumber'
-            placeholder='Phone Number'
-            text='Contact'
-            textContentType='telephoneNumber'
-          />
-          <AppFormField
-            autoCapitalize='none'
-            autoCorrect={false}
-            keyboardType='email-address'
-            name='email'
-            placeholder='Email'
-            text='Email'
-            textContentType='emailAddress'
-          />
-          <AppFormField
-            autoCapitalize='none'
-            autoCorrect={false}
-            name='password'
-            placeholder='Password'
-            secureTextEntry
-            text='Password'
-            textContentType='password'
-          />
-          <DropdownComponent data={data} placeholder='Select' />
-          <View style={styles.signupButton}>
-            <SubmitButton title='Signup' />
-          </View>
-          <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
-            <Text style={styles.login}>Sign In Instead</Text>
-          </TouchableOpacity>
-        </AppForm>
+      <View style={{ alignItems: 'center', marginTop: RFPercentage(2) }}>
+        <View style={styles.logo}>
+          <Text style={styles.text}>UPLOAD PHOTO</Text>
+        </View>
+        <View style={styles.components}>
+          <AppForm
+            initialValues={{
+              fullName: '',
+              phoneNumber: '',
+              email: '',
+              password: '',
+              confirmPassword: '',
+            }}
+            onSubmit={(values) => console.log(values)}
+            validationSchema={validationSchema}
+          >
+            <AppFormField text='Name' name='fullName' textContentType='name' placeholder='Name' />
+            <AppFormField
+              keyboardType='phone-pad'
+              name='phoneNumber'
+              placeholder='Phone Number'
+              text='Contact'
+              textContentType='telephoneNumber'
+            />
+            <AppFormField
+              autoCapitalize='none'
+              autoCorrect={false}
+              keyboardType='email-address'
+              name='email'
+              placeholder='Email'
+              text='Email'
+              textContentType='emailAddress'
+            />
+            <AppFormField
+              autoCapitalize='none'
+              autoCorrect={false}
+              name='password'
+              placeholder='Password'
+              secureTextEntry
+              text='Password'
+              textContentType='password'
+            />
+            <DropdownComponent data={data} placeholder='Select' />
+            <View style={styles.signupButton}>
+              <SubmitButton title='Sign Up' />
+            </View>
+            <TouchableOpacity onPress={() => navigation.navigate('LoginScreen')}>
+              <Text style={styles.login}>Sign In Instead</Text>
+            </TouchableOpacity>
+          </AppForm>
+        </View>
       </View>
     </ScrollView>
   )
@@ -101,6 +103,17 @@ const styles = StyleSheet.create({
   },
   logo: {
     alignItems: 'center',
+    backgroundColor: 'rgb(229, 231, 230)',
+    borderRadius: 60,
+    height: RFPercentage(15),
+    justifyContent: 'center',
+    width: RFPercentage(15),
+  },
+  text: {
+    fontSize: RFValue(14),
+    fontWeight: '500',
+    paddingHorizontal: RFPercentage(1),
+    textAlign: 'center',
   },
   header: {
     alignItems: 'center',
@@ -110,6 +123,7 @@ const styles = StyleSheet.create({
   components: {
     flex: 0.6,
     marginTop: RFPercentage(5),
+    width: '100%',
   },
   signupButton: {
     alignItems: 'center',
