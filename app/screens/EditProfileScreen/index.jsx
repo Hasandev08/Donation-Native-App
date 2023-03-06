@@ -1,36 +1,27 @@
 import React from 'react'
-import { FlatList, Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 
-import ProfileList from '../../components/ProfileList'
-import { profileList, profileSecondList } from '../../config/profileList'
+import AppTextInput from '../../components/AppTextInput'
+import AppButton from '../../components/common/AppButton'
+import { editProfile } from '../../config/profileList'
 
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 
-const ProfileScreen = ({ navigation }) => {
+const EditProfileScreen = () => {
   return (
     <View style={styles.container}>
       <Text style={styles.heading}>Profile</Text>
       <Image source={require('../../../assets/request.png')} style={styles.image} />
       <Text style={styles.title}>End Poverty Welfare Society</Text>
       <Text style={styles.subTitle}>Non Governmental Organization</Text>
-      <FlatList
-        data={profileList}
-        renderItem={({ item }) => (
-          <ProfileList
-            icon={item.icon}
-            listTitle={item.listTitle}
-            route={item.route}
-            navigation={navigation}
-          />
-        )}
-        keyExtractor={(item) => item.id}
-        style={{ marginBottom: RFPercentage(3) }}
-      />
-      <FlatList
-        data={profileSecondList}
-        renderItem={({ item }) => <ProfileList icon={item.icon} listTitle={item.listTitle} />}
-        keyExtractor={(item) => item.id}
-      />
+      {editProfile.map((item) => (
+        <View key={item.id.toString()} style={{ width: '100%' }}>
+          <AppTextInput placeholder={item.placeholder} />
+        </View>
+      ))}
+      <View style={styles.button}>
+        <AppButton title='Save' />
+      </View>
     </View>
   )
 }
@@ -61,6 +52,9 @@ const styles = StyleSheet.create({
     fontSize: RFValue(14),
     marginBottom: RFPercentage(3),
   },
+  button: {
+    marginTop: RFPercentage(5),
+  },
 })
 
-export default ProfileScreen
+export default EditProfileScreen

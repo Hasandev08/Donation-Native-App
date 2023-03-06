@@ -7,6 +7,7 @@ export const profileList = [
     id: 1,
     icon: <MaterialCommunityIcons name='account' size={36} color={colors.primary} />,
     listTitle: 'Edit Profile',
+    route: 'EditProfileScreen',
   },
   {
     id: 2,
@@ -30,5 +31,24 @@ export const profileSecondList = [
     id: 2,
     icon: <MaterialIcons name='logout' size={36} color={colors.primary} />,
     listTitle: 'Log Out',
+  },
+]
+
+export const editProfile = [
+  {
+    id: 1,
+    placeholder: 'Name',
+  },
+  {
+    id: 2,
+    placeholder: 'Location',
+  },
+  {
+    id: 3,
+    placeholder: 'Account Type',
+  },
+  {
+    id: 4,
+    placeholder: 'Phone',
   },
 ]

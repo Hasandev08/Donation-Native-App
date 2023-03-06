@@ -1,19 +1,21 @@
 import React from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, TouchableWithoutFeedback, View } from 'react-native'
 
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize'
 
 import { AntDesign } from '@expo/vector-icons'
 
-const ProfileList = ({ icon, listTitle }) => {
+const ProfileList = ({ icon, listTitle, route, navigation }) => {
   return (
-    <View style={styles.container}>
-      <View style={styles.icon}>{icon}</View>
-      <View style={styles.components}>
-        <Text style={styles.title}>{listTitle}</Text>
-        <AntDesign name='right' size={24} color='rgb(112, 112, 112)' />
+    <TouchableWithoutFeedback onPress={() => navigation.navigate(route)}>
+      <View style={styles.container}>
+        <View style={styles.icon}>{icon}</View>
+        <View style={styles.components}>
+          <Text style={styles.title}>{listTitle}</Text>
+          <AntDesign name='right' size={24} color='rgb(112, 112, 112)' />
+        </View>
       </View>
-    </View>
+    </TouchableWithoutFeedback>
   )
 }
 
